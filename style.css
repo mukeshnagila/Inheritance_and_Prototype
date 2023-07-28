@@ -1,0 +1,74 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-color: cornflowerblue;
+    border: 15px solid black;
+    min-width: 759px;
+}
+
+h1{
+    color: antiquewhite;
+    font-style: italic;
+    text-align: center;
+}
+
+.header{
+    background-color: cadetblue;
+    padding: 5px 0px;
+    border: 1px solid wheat;
+}
+
+.container{
+    border: 2px solid tomato;
+}
+
+.start{
+    padding: 20px 70px;
+    line-height: 30px;
+}
+
+h3{
+    color: brown;
+    font-size: 20px;
+    text-align: center;
+}
+
+.ans{
+    color:black;
+    font-size: 25px;
+    font-style: italic;
+}
+
+.explain{
+    border: 2px solid whitesmoke;
+    padding: 5px 15px;
+}
+
+.span2{
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+p{
+    color: rgba(145, 13, 145, 0.884);
+    line-height: 25px;
+    font-size: 18px;
+}
+
+.button{
+    color: aliceblue;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+button{
+    color: blue;
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding: 5px 5px;
+}

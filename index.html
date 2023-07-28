@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance & Prototype</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Inheritance And Prototype</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="start">
+            <h2>Q-1. Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype.....?</h2>
+            <br>
+            <span class="ans">Ans--</span>
+            <h3>
+                    <pre>
+    let parent = {
+        demo:function(a,b){
+            console.log(a+b);
+            console.log(a-b);
+            console.log(a*b);
+            console.log(a/b);
+        }
+    }
+
+    let child = Object.create(parent);
+    child.demo(5,3);
+                    </pre>
+            </h3>
+            <div class="button">
+                <button onclick="question1()">Click here & check console </button>
+            </div>
+            <div class="explain">
+                <p>
+                    <span class="span2">Explain--</span><br>
+                    In this code, there are two objects: parent and child. The parent object has a method called demo that performs arithmetic operations on two input values and prints the results. The child object is created using Object.create(parent), 
+                    which makes it inherit the demo method from the parent object. When child.demo(5, 3) is called, 
+                    it executes the demo method and prints the results of the arithmetic operations for the inputs 5 and 3.
+                </p>
+            </div>
+        </div><br><hr><br>
+
+
+
+        <div class="start">
+            <h2>Q-2. Write code to explain prototype chaining.....?</h2>
+            <br>
+            <span class="ans">Ans--</span>
+            <h3>
+                    <pre>
+const Animal = {
+    type: "animal",
+    breathe: function() {
+        console.log("Breathing...");
+    }
+    };
+                          
+    const dog = Object.create(Animal);
+    dog.bark = function() {
+    console.log("Woof! Woof!");
+    };
+                          
+    const puppy = Object.create(dog);
+    puppy.weep = function() {
+    console.log("Weeping...");
+    };
+                          
+    puppy.breathe(); 
+    puppy.bark();   
+    puppy.weep();                              
+                    </pre>
+            </h3>
+            <div class="button">
+                <button onclick="question2()">Click here & check console </button>
+            </div>
+            <div class="explain">
+                <p>
+                    <span class="span2">Explain--</span><br>
+                    This code demonstrates prototype chaining in JavaScript. It creates three objects, Animal, dog, and puppy, using Object.create() for inheritance.
+                     Each object has its own properties and methods, and they can access and inherit methods from their prototype objects. The puppy object, being at the end of the prototype chain, can access methods from both dog and Animal.
+                     Calling methods on puppy demonstrates how properties and methods are inherited through the prototype chain.    
+                </p>
+            </div>
+        </div><br><hr><br>
+
+
+        <div class="start">
+            <h2>Q-3. Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays.....?</h2>
+            <br>
+            <span class="ans">Ans--</span>
+            <h3>
+                    <pre>
+Array.prototype.sum = function() {
+    return this.reduce((acc, curr) => acc + curr, 0);
+    };
+    const array1 = [1, 2, 3, 4, 5];
+    const array2 = [10, 20, 30, 40, 50];
+    const array3 = [3, 7, 11, 15];
+                          
+    const sum1 = array1.sum();
+    const sum2 = array2.sum();
+    const sum3 = array3.sum();
+                          
+    console.log(`Sum of array1: ${sum1}`); 
+    console.log(`Sum of array2: ${sum2}`); 
+    console.log(`Sum of array3: ${sum3}`);
+                    </pre>
+            </h3>
+            <div class="button">
+                <button onclick="question3()">Click here & check console </button>
+            </div>
+            <div class="explain">
+                <p>
+                    <span class="span2">Explain--</span><br>
+                    the sum method is added to the Array.prototype, so it becomes available to all arrays. The sum method uses the reduce function to calculate the sum of all elements in the array. 
+                    Then, we create three arrays (array1, array2, and array3),
+                     and we use the sum method on each of them to calculate the sum of their elements. The results are printed to the console.    
+                </p>
+            </div>
+        </div><br><hr><br>
+
+
+        <div class="start">
+            <h2>Q-4. Write a JavaScript function to retrieve all the names of object's own and inherited properties......?</h2>
+            <br>
+            <span class="ans">Ans--</span>
+            <h3>
+                    <pre>
+function getAllPropertyNames(obj) {
+    let properties = [];
+                          
+    function collectProperties(obj) {
+        if (obj === null) return;
+properties = properties.concat(Object.getOwnPropertyNames(obj));
+        collectProperties(Object.getPrototypeOf(obj));
+    }
+                          
+    collectProperties(obj);
+                          
+    return [...new Set(properties)];
+    }
+                    </pre>
+            </h3>
+            <div class="button">
+                <button onclick="question3()">Click here & check console </button>
+            </div>
+            <div class="explain">
+                <p>
+                    <span class="span2">Explain--</span><br>
+                    The getAllPropertyNames function retrieves all the names of an object's own and inherited properties. It does this by traversing the object's prototype chain recursively and collecting the property names along the way. 
+                    The function returns an array containing all the unique property names found during the traversal. 
+                    It ensures uniqueness using a Set, which automatically removes duplicates, before converting the set back to an array and returning the result.    
+                </p>
+            </div>
+        </div><br><hr><br>
+            
+
+
+    </div>
+    
+
+
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
